@@ -128,7 +128,7 @@ fig_country_product = px.bar(
 # rating by country [bar chart]
 rating_by_country = (
 
-    coffee_selection.groupby(by=["country_of_origin"]).mean()[['total_cup_points']].sort_values(by='total_cup_points', ascending=False)
+    coffee_selection.groupby(by=["country_of_origin"])[['total_cup_points']].mean().sort_values(by='total_cup_points', ascending=False)
 )
 
 fig_country_rating = px.bar(
@@ -145,7 +145,7 @@ fig_country_rating = px.bar(
 top_8 = ['Caturra', 'Gesha', 'Typica', 'Bourbon', 'Catuai', 'unknown', 'Catimor','Ethiopian Heirlooms']
 
 rating_by_variety = (
-    coffee[coffee['variety'].isin(top_8)].groupby(by=["variety"]).mean()[['total_cup_points']].sort_values(by='total_cup_points', ascending=False)
+    coffee[coffee['variety'].isin(top_8)].groupby(by=["variety"])[['total_cup_points']].mean().sort_values(by='total_cup_points', ascending=False)
 )
 
 fig_variety_rating = px.bar(
