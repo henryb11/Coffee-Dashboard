@@ -110,10 +110,8 @@ st.markdown("---")
 
 
 # Product by country [bar chart]
-product_by_country = (
+product_by_country = coffee_selection.groupby(by=["country_of_origin"]).sum()[['total_mass']].sort_values(by='total_mass', ascending=False)
 
-    coffee_selection.groupby(by=["country_of_origin"]).sum()[['total_mass']].sort_values(by='total_mass', ascending=False)
-)
 
 fig_country_product = px.bar(
     product_by_country,
