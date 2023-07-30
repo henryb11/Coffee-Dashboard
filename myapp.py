@@ -192,7 +192,7 @@ right_column.write(coffee['variety'].value_counts().head(8), use_container_width
 
 st.markdown("---")
 
-mass_variety_country = coffee_selection.groupby(by=['variety']).sum().sort_values(by='total_mass', ascending=False).head(20)
+mass_variety_country = coffee_selection.groupby(by=['variety'])[['total_mass']].sum().sort_values(by='total_mass', ascending=False).head(20)
 st.markdown("""
 # So what is the best variety of coffee? 
 Ethiopian heirlooms seem to be the highest mass produced and also happen to be one of the highest-rated coffees. It is no surprise that there is a farm in ethiopia that produces 
